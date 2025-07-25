@@ -916,7 +916,7 @@ section {
     border-color: var(--primary-color);
 }
 
-/* Reels Grid Styles */
+/* Reels Grid Styles (for homepage) */
 .reels-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1018,12 +1018,14 @@ section {
 
 /* Remove any overlays blocking video interaction */
 .video-wrapper,
-.reel-video-container {
+.reel-video-container,
+.work-video-container /* Added for my-work.html consistency */ {
     position: relative;
 }
 
 .video-wrapper *,
-.reel-video-container * {
+.reel-video-container *,
+.work-video-container * /* Added for my-work.html consistency */ {
     pointer-events: auto;
 }
 
@@ -1306,14 +1308,17 @@ iframe {
 }
 
 /* Ensure LTR for videos in RTL mode */
-[dir="rtl"] .reels-grid {
+[dir="rtl"] .reels-grid,
+[dir="rtl"] .work-grid { /* Added .work-grid for my-work.html */
     direction: ltr;
 }
 
-[dir="rtl"] .reel-item {
+[dir="rtl"] .reel-item,
+[dir="rtl"] .work-item { /* Added .work-item */
     direction: ltr;
 }
 
-[dir="rtl"] .reel-video-container {
+[dir="rtl"] .reel-video-container,
+[dir="rtl"] .work-video-container { /* Added .work-video-container */
     direction: ltr;
 }
