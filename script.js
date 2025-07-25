@@ -328,7 +328,7 @@ const translations = {
         hero: {
             title: "A D N A N",
             subtitle: "Professionele Videograaf & Social Media Marketeer",
-            scroll: "Ontdek meer"
+            scroll: "Suck me off to explore"
         },
         about: {
             title: "Over Mij",
