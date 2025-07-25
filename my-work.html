@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Work - Adnan Kousa | Professional Videographer</title>
+    <meta name="description" content="Explore Adnan Kousa's complete portfolio of cinematic videos and creative work">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional styles specific to my-work page */
+        .work-page {
+            background: var(--dark-bg);
+            min-height: 100vh;
+            padding: 120px 0 60px;
+        }
+        
+        .work-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .work-subtitle {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 20px auto 0;
+            line-height: 1.8;
+        }
+        
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        .work-item {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .work-item:nth-child(3n+1) { animation-delay: 0.1s; }
+        .work-item:nth-child(3n+2) { animation-delay: 0.2s; }
+        .work-item:nth-child(3n+3) { animation-delay: 0.3s; }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .work-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(255, 0, 64, 0.2);
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 9/16;
+            background: #000;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .work-info {
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .work-title {
+            font-family: var(--font-primary);
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            color: var(--text-light);
+        }
+        
+        .work-category {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .load-more-container {
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .load-more-btn {
+            padding: 16px 40px;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-light);
+            font-family: var(--font-primary);
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .load-more-btn:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--dark-bg);
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border-color);
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 100px 20px;
+            color: var(--text-muted);
+        }
+        
+        .empty-state h3 {
+            font-family: var(--font-primary);
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+        
+        .empty-state p {
+            font-size: 18px;
+            color: var(--text-muted);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .work-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 30px;
+                padding: 0 20px;
+            }
+            
+            .work-item {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .work-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="/" class="logo-text">
+                    <span>Adnan</span>
+                    <span>Kousa</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/my-work.html" class="nav-link">My Work</a>
+                <a href="/" class="nav-link">About</a>
+                <a href="/" class="nav-link">Services</a>
+                <a href="/" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="work-page">
+        <div class="container">
+            <div class="work-header">
+                <h1 class="section-title">My Complete Portfolio</h1>
+                <p class="work-subtitle">
+                    A curated collection of cinematic work showcasing creative vision through vertical format videos, 
+                    optimized for maximum social media impact and engagement.
+                </p>
+            </div>
+            
+            <div id="workGrid" class="work-grid">
+                <!-- Videos will be loaded dynamically -->
+            </div>
+            
+            <div class="load-more-container" style="display: none;">
+                <button class="load-more-btn">Load More</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    2024 Adnan Kousa | All Rights Reserved
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // GSAP registration
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        // Load videos dynamically
+        async function loadAllVideos() {
+            const workGrid = document.getElementById('workGrid');
+            const loadMoreContainer = document.querySelector('.load-more-container');
+            
+            try {
+                const response = await fetch('videos.json');
+                const videos = await response.json();
+                
+                if (!videos || videos.length === 0) {
+                    workGrid.innerHTML = `
+                        <div class="empty-state">
+                            <h3>No videos available at the moment</h3>
+                            <p>Check back soon for new content</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                workGrid.innerHTML = '';
+                
+                videos.forEach((video, index) => {
+                    const workItem = document.createElement('div');
+                    workItem.className = 'work-item';
+                    workItem.style.animationDelay = `${index * 0.1}s`;
+                    
+                    workItem.innerHTML = `
+                        <div class="video-container">
+                            <iframe src="${video.url}" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen
+                                    loading="lazy">
+                            </iframe>
+                        </div>
+                        <div class="work-info">
+                            <h3 class="work-title">${video.title}</h3>
+                            <p class="work-category">Professional Reel</p>
+                        </div>
+                    `;
+                    
+                    workGrid.appendChild(workItem);
+                });
+                
+                // Animate items on scroll
+                gsap.from('.work-item', {
+                    y: 50,
+                    opacity: 0,
+                    duration: 1,
+                    ease: 'power2.out',
+                    stagger: 0.1,
+                    scrollTrigger: {
+                        trigger: '.work-grid',
+                        start: 'top 80%',
+                        toggleActions: 'play none none reverse'
+                    }
+                });
+                
+            } catch (error) {
+                console.error('Error loading videos:', error);
+                workGrid.innerHTML = `
+                    <div class="empty-state">
+                        <h3>Error Loading Videos</h3>
+                        <p>Please check your connection and refresh the page</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadAllVideos();
+        });
+    </script>
+</body>
+</html>

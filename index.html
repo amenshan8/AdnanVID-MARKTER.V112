@@ -1,0 +1,272 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adnan Kousa - Videographer & Social Media Marketer</title>
+    <meta name="description" content="Adnan Kousa - Creative videographer and social media marketer turning ideas into cinematic stories">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="#home" class="logo-text">
+                    <span class="logo-animation">Adnan</span>
+                    <span class="logo-animation">Kousa</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#work" class="nav-link">Work</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#testimonials" class="nav-link">Client Stories</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <!-- Language switcher will be added here by JavaScript -->
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="hero-title-line clapper-top">A D N A N</span>
+                <span class="hero-subtitle clapper-bottom">Professional Videographer & Social Media Marketer</span>
+            </h1>
+            <div class="scroll-indicator">
+                <span>Scroll to explore</span>
+                <div class="scroll-arrow"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-content">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <p class="about-text">
+                        Adnan Kousa is a creative professional who turns ideas into cinematic stories. 
+                        As a videographer and social media marketer, Adnan helps brands, artists, 
+                        and entrepreneurs grow through visual storytelling and digital content strategy.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="work" class="portfolio-reels">
+        <div class="container">
+            <div class="portfolio-header">
+                <h2 class="section-title" data-en="My Work" data-nl="Mijn Werk" data-ar="أعمالي">My Work</h2>
+                <p class="portfolio-subtitle" data-en="Latest cinematic work showcasing creative vision" 
+                   data-nl="Nieuwste cinematische werk die creatieve visie toont" 
+                   data-ar="أحدث الأعمال السينمائية التي تعرض الرؤية الإبداعية">
+                    Latest cinematic work showcasing creative vision
+                </p>
+            </div>
+            
+            <div id="videoGallery" class="reels-grid">
+                <!-- Latest 3 videos will load here -->
+            </div>
+            
+            <div class="see-more-container">
+                <a href="/my-work.html" class="btn btn-outline see-more-btn">
+                    <span data-en="See More Work" data-nl="Meer Werk Bekijken" data-ar="عرض المزيد من الأعمال">See More Work</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Services</h2>
+            <p class="services-subtitle">Professional creative services tailored to your needs</p>
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Videography</h3>
+                    <p>Professional shooting, editing, and drone footage for all your visual needs. From concept to final cut, we create stunning visuals that tell your story.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Social Media Marketing</h3>
+                    <p>Strategic content creation, ad campaigns, and growth strategies across platforms. Build your brand presence and engage your audience effectively.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <h3>Commercials & Ads</h3>
+                    <p>High-impact commercial production for brands and businesses. Create compelling advertisements that drive results and elevate your brand.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Event Videography</h3>
+                    <p>Complete event coverage with cinematic storytelling approach. Capture every moment of your special events with professional quality.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3>Content Creation</h3>
+                    <p>Platform-specific content for Instagram, TikTok, YouTube, and X. Stay relevant with trending content that resonates with your audience.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Drone Photography</h3>
+                    <p>Aerial cinematography and photography services. Get stunning bird's-eye views that add production value to your projects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Client Stories</h2>
+            <div class="swiper-container testimonial-swiper">
+                <div class="swiper-wrapper">
+                    <!-- Testimonial items will be loaded dynamically here -->
+                </div>
+                <!-- Add Swiper Navigation Arrows -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <!-- Empty state message (initially hidden) -->
+                <div class="testimonial-empty-state" style="display: none;">
+                    <h3></h3>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Create Together</h2>
+            <div class="contact-top-row">
+                <div class="contact-info">
+                    <div class="elementor-icon-list-items elementor-inline-items">
+                        <div class="elementor-icon-list-item elementor-inline-item">
+                            <a href="tel:+31soon000">
+                                <span class="elementor-icon-list-icon">
+                                    <i class="fas fa-phone"></i>
+                                </span>
+                                <span class="elementor-icon-list-text">+31soon000</span>
+                            </a>
+                        </div>
+                        <div class="elementor-icon-list-item elementor-inline-item">
+                            <a href="mailto:adnankousa24@gmail.com">
+                                <span class="elementor-icon-list-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                                <span class="elementor-icon-list-text">adnankousa24@gmail.com</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="elementor-hidden-phone">
+                    <div class="elementor-icon-list-items elementor-inline-items">
+                        <div class="elementor-icon-list-item elementor-inline-item">
+                            <a href="https://www.instagram.com/adnan_kousa/" target="_blank">
+                                <span class="elementor-icon-list-icon">
+                                    <i class="fab fa-instagram"></i>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="elementor-icon-list-item elementor-inline-item">
+                            <a href="https://x.com/adnan_kousa" target="_blank">
+                                <span class="elementor-icon-list-icon">
+                                    <i class="fab fa-twitter"></i>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="elementor-icon-list-item elementor-inline-item">
+                            <a href="https://www.snapchat.com/@adnan.kousa?invite_id=HLyZj2mK&locale=en_NL&share_id=nQ8D2qKESwuZzGkESZ-a5A&sid=613812ede4e54e0785515b4d90196167" target="_blank">
+                                <span class="elementor-icon-list-icon">
+                                    <i class="fab fa-snapchat"></i>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="elementor-icon-list-item elementor-inline-item">
+                            <a href="https://www.youtube.com/@AdnanKousa" target="_blank">
+                                <span class="elementor-icon-list-icon">
+                                    <i class="fab fa-youtube"></i>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="elementor-icon-list-item elementor-inline-item">
+                            <a href="https://www.facebook.com/Adnan.kousa.2" target="_blank">
+                                <span class="elementor-icon-list-icon">
+                                    <i class="fab fa-facebook"></i>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="elementor-icon-list-item elementor-inline-item">
+                            <a href="https://www.imdb.com/name/nm13712686/" target="_blank">
+                                <span class="elementor-icon-list-icon">
+                                    <i class="fab fa-imdb"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-bottom-row">
+                <div class="contact-links">
+                    <a href="https://bio.link/adnan_kousa" target="_blank" class="btn btn-outline">Bio Link</a>
+                    <a href="https://nl.qrcodechimp.com/page/adnanicmedia" target="_blank" class="btn btn-outline">Business Card</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    © 2024 Adnan Kousa | Developed & Designed by Amin Shan | All Rights Reserved
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

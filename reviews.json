@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Sarah Johnson",
+    "title": "Tech Startup CEO",
+    "image": "images/clients/sarah_johnson.png",
+    "review": {
+      "en": "Adnan transformed our brand's visual identity with stunning videos that doubled our engagement.",
+      "nl": "Adnan transformeerde de visuele identiteit van ons merk met prachtige video's die onze betrokkenheid verdubbelden.",
+      "ar": "عدنان غيّر الهوية البصرية لعلامتنا التجارية بفيديوهات مذهلة مضاعفتة لمعدلات التفاعل."
+    }
+  },
+  {
+    "name": "Marcus Rivera",
+    "title": "Recording Artist",
+    "image": "images/clients/marcus_rivera.png",
+    "review": {
+      "en": "Working with Adnan was incredible. His creative vision brought our music to life visually.",
+      "nl": "Met Adnan samenwerken was ongelooflijk. Zijn creatieve visie bracht onze muziek visueel tot leven.",
+      "ar": "العمل مع عدنان كان لا يصدق. رؤيته الإبداعية أحيت موسيقانا بصريًا."
+    }
+  },
+  {
+    "name": "Emily & David Chen",
+    "title": "Wedding Clients",
+    "image": "images/clients/emily_david.png",
+    "review": {
+      "en": "The wedding video exceeded all expectations. Every moment was captured perfectly.",
+      "nl": "De trouwvideo overtrof alle verwachtingen. Elk moment werd perfect vastgelegd.",
+      "ar": "فيديو الزفاف فاق كل التوقعات. تم التقاط كل لحظة بشكل مثالي."
+    }
+  },
+  {
+    "name": "Alex Rodriguez",
+    "title": "Local Business Owner",
+    "image": "images/clients/alex_rodriguez.png",
+    "review": {
+      "en": "Adnan's social media strategy significantly boosted our online presence and customer inquiries.",
+      "nl": "Adnan's social media strategie heeft onze online aanwezigheid en klantaanvragen aanzienlijk verhoogd.",
+      "ar": "استراتيجية عدنان لوسائل التواصل الاجتماعي عززت حضورنا الرقمي واستفسارات العملاء بشكل كبير."
+    }
+  },
+  {
+    "name": "Sophia Lee",
+    "title": "Fashion Blogger",
+    "image": "images/clients/sophia_lee.png",
+    "review": {
+      "en": "The short-form video content Adnan created for my blog was exactly what I needed to go viral!",
+      "nl": "De korte video content die Adnan voor mijn blog heeft gemaakt, was precies wat ik nodig had om viraal te gaan!",
+      "ar": "محتوى الفيديو القصير الذي أنشأه عدنان لمدونتي كان بالضبط ما احتجته لأصبح فيروسيًا!"
+    }
+  }
+]
