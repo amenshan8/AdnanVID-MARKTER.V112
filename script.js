@@ -247,7 +247,6 @@ const translations = {
             about: "About",
             work: "Work",
             services: "Services",
-            testimonials: "Client Stories",
             contact: "Contact"
         },
         hero: {
@@ -270,7 +269,7 @@ const translations = {
             items: {
                 videography: {
                     title: "Videography",
-                    desc: "Professional shooting, editing, and drone footage for all your visual needs. From concept to final cut, we create stunning visuals that tell your story."
+                    desc: "Professional shooting and editing for all your visual needs. From concept to final cut, we create stunning visuals that tell your story."
                 },
                 social: {
                     title: "Social Media Marketing",
@@ -287,22 +286,15 @@ const translations = {
                 content: {
                     title: "Content Creation",
                     desc: "Platform-specific content for Instagram, TikTok and YouTube. Stay relevant with trending content that resonates with your audience."
-                },
-                drone: {
-                    title: "Drone Photography",
-                    desc: "Aerial cinematography and photography services. Get stunning bird's-eye views that add production value to your projects."
                 }
             }
         },
         testimonials: {
             title: "Client Stories",
-            empty: {
-                title: "No client stories available at the moment.",
-                message: "Check back soon for new testimonials!"
-            },
-            error: {
-                title: "Error Loading Client Stories",
-                message: "Please check your connection and refresh the page."
+            items: {
+                1: { text: "Adnan transformed our brand's visual identity with stunning videos that doubled our engagement.", name: "- Sarah Johnson, Tech Startup CEO" },
+                2: { text: "Working with Adnan was incredible. His creative vision brought our music to life visually.", name: "- Marcus Rivera, Recording Artist" },
+                3: { text: "The wedding video exceeded all expectations. Every moment was captured perfectly.", name: "- Emily & David Chen" }
             }
         },
         contact: {
@@ -315,7 +307,14 @@ const translations = {
         portfolio: {
             title: "Latest Work",
             subtitle: "A selection of recent projects shot in cinematic Reels format, optimized for social media impact.",
-            viewMore: "View More Projects"
+            viewMore: "View More Projects",
+            items: [
+                { title: "Cinematic Reel", category: "Brand Video" },
+                { title: "Social Media Campaign", category: "Content Creation" },
+                { title: "Event Highlights", category: "Event Coverage" },
+                { title: "Product Showcase", category: "Commercial" },
+                { title: "Behind the Scenes", category: "Documentary" }
+            ]
         }
     },
     nl: {
@@ -324,7 +323,6 @@ const translations = {
             about: "Over Mij",
             work: "Werk",
             services: "Diensten",
-            testimonials: "Klantverhalen",
             contact: "Contact"
         },
         hero: {
@@ -364,22 +362,15 @@ const translations = {
                 content: {
                     title: "Content Creatie",
                     desc: "Platform-specifieke content voor Instagram, TikTok en YouTube. Blijf relevant met trending content die resoneert met uw publiek."
-                },
-                drone: {
-                    title: "Drone Fotografie",
-                    desc: "Luchtfotografie en cinematografie diensten. Krijg verbluffende vogelperspectieven die productiewaarde toevoegen aan uw projecten."
                 }
             }
         },
         testimonials: {
             title: "Klantverhalen",
-            empty: {
-                title: "Geen klantverhalen beschikbaar op dit moment.",
-                message: "Kom snel terug voor nieuwe testimonials!"
-            },
-            error: {
-                title: "Fout bij het laden van klantverhalen",
-                message: "Controleer uw verbinding en vernieuw de pagina."
+            items: {
+                1: { text: "Adnan transformeerde de visuele identiteit van ons merk met prachtige video's die onze betrokkenheid verdubbelden.", name: "- Sarah Johnson, Tech Startup CEO" },
+                2: { text: "Met Adnan samenwerken was ongelooflijk. Zijn creatieve visie bracht onze muziek visueel tot leven.", name: "- Marcus Rivera, Muzikant" },
+                3: { text: "De trouwfilm overtrof alle verwachtingen. Elk moment werd perfect vastgelegd.", name: "- Emily & David Chen" }
             }
         },
         contact: {
@@ -396,7 +387,6 @@ const translations = {
             about: "عنّي",
             work: "أعمالي",
             services: "الخدمات",
-            testimonials: "قصص العملاء",
             contact: "تواصل"
         },
         hero: {
@@ -436,22 +426,15 @@ const translations = {
                 content: {
                     title: "إنشاء المحتوى",
                     desc: "محتوى مخصص للمنصات مثل إنستغرام، تيك توك ويوتيوب. محتوى يتناسب مع جمهورك ويعكس تطلعاتهم."
-                },
-                drone: {
-                    title: "تصوير درون",
-                    desc: "خدمات التصوير السينمائي والتصوير الفوتوغرافي الجوي. احصل على مناظر خلابة من منظور عين الطائر تضيف قيمة إنتاجية لمشاريعك."
                 }
             }
         },
         testimonials: {
             title: "قصص العملاء",
-            empty: {
-                title: "لا توجد قصص عملاء متاحة حاليًا.",
-                message: "تحقق مرة أخرى قريبًا للحصول على شهادات جديدة!"
-            },
-            error: {
-                title: "خطأ في تحميل قصص العملاء",
-                message: "يرجى التحقق من اتصالك وتحديث الصفحة."
+            items: {
+                1: { text: "عدنان غيّر الهوية البصرية لعلامتنا التجارية بفيديوهات مذهلة مضاعفتة لمعدلات التفاعل.", name: "- سارة جونسون، الرئيس التنفيذي لشركة تكنولوجيا" },
+                2: { text: "العمل مع عدنان كان لا يصدق. رؤيته الإبداعية أحيت موسيقانا بصريًا.", name: "- ماركوس ريفيرا، فنان موسيقي" },
+                3: { text: "فيديو الزفاف تفوق على جميع التوقعات. تم التقاط كل لحظة بشكل مثالي.", name: "- إميلي وديفيد تشين" }
             }
         },
         contact: {
