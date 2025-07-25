@@ -111,9 +111,10 @@ gsap.from('.logo-animation', {
 // Section reveal animations
 gsap.utils.toArray('section').forEach(section => {
     // Exclude the testimonials section from the generic section reveal as Swiper has its own animation
-    if (section.id === 'testimonials') return; 
+    // Also exclude portfolio sections as their video loading function handles animation.
+    if (section.id === 'testimonials' || section.classList.contains('portfolio-reels') || section.classList.contains('work-page')) return; 
 
-    gsap.from(section.querySelectorAll('.section-title, .about-text, .service-item, .portfolio-reels .reel-item'), {
+    gsap.from(section.querySelectorAll('.section-title, .about-text, .service-item'), {
         y: 50,
         opacity: 0,
         duration: 1,
@@ -127,7 +128,7 @@ gsap.utils.toArray('section').forEach(section => {
     });
 });
 
-// Portfolio filtering
+// Portfolio filtering (currently unused, can be removed if not needed)
 const filterBtns = document.querySelectorAll('.filter-btn');
 const portfolioItems = document.querySelectorAll('.portfolio-item');
 
@@ -566,12 +567,19 @@ function updateTextContent() {
     
     // Work
     const workTitle = document.querySelector('#work .section-title');
-    const workSubtitle = document.querySelector('.portfolio-subtitle');
+    const portfolioSubtitle = document.querySelector('.portfolio-subtitle'); // Corrected selector for homepage work subtitle
     const seeMoreBtnText = document.querySelector('.see-more-btn span');
     
+    // Check if elements exist before updating
     if (workTitle) workTitle.textContent = t.work.title;
-    if (workSubtitle) workSubtitle.textContent = t.work.subtitle;
+    if (portfolioSubtitle) portfolioSubtitle.textContent = t.work.subtitle;
     if (seeMoreBtnText) seeMoreBtnText.textContent = t.work.viewMore;
+
+    // For my-work.html specific titles if they exist
+    const myWorkPageTitle = document.querySelector('.work-page .section-title');
+    const myWorkPageSubtitle = document.querySelector('.work-page .work-subtitle');
+    if (myWorkPageTitle) myWorkPageTitle.textContent = translations[currentLang].work.title; // Re-use work title
+    if (myWorkPageSubtitle) myWorkPageSubtitle.textContent = translations[currentLang].work.subtitle; // Re-use work subtitle
     
     // Services
     const servicesTitle = document.querySelector('#services .section-title');
@@ -611,17 +619,29 @@ function updateTextContent() {
     if (businessCard) businessCard.textContent = t.contact.businessCard;
 }
 
-// Function to load videos from JSON
-async function loadVideos() {
+/**
+ * Loads videos from reviews.json and populates the specified container.
+ * This function is used for both the homepage (limited videos) and the work page (all videos).
+ * @param {string} containerId - The ID of the HTML element where videos should be displayed.
+ * @param {number|null} limit - The maximum number of videos to display. If null, all videos are displayed.
+ */
+async function loadProjectVideos(containerId, limit = null) {
+    const container = document.getElementById(containerId);
+    if (!container) {
+        console.warn(`Container with ID "${containerId}" not found.`);
+        return;
+    }
+
+    // Determine base class name based on containerId to apply correct styles
+    // 'videoGallery' is for homepage (reels-grid, reel-item), 'workGrid' is for my-work.html (work-grid, work-item)
+    const baseClassName = containerId === 'videoGallery' ? 'reel' : 'work';
+
     try {
         const response = await fetch('videos.json');
         const allVideos = await response.json();
-        
-        const gallery = document.getElementById('videoGallery');
-        const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html';
-        
+
         if (!allVideos || allVideos.length === 0) {
-            gallery.innerHTML = `
+            container.innerHTML = `
                 <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
                     <h3 style="font-size: 24px; color: var(--text-muted); margin-bottom: 20px;">
                         No videos available at the moment.
@@ -633,19 +653,18 @@ async function loadVideos() {
             `;
             return;
         }
-        
-        gallery.innerHTML = '';
-        
-        // On homepage, show only latest 3 videos
-        const videosToShow = isHomePage ? allVideos.slice(0, 3) : allVideos;
-        
+
+        container.innerHTML = ''; // Clear previous content
+
+        const videosToShow = limit !== null ? allVideos.slice(0, limit) : allVideos;
+
         videosToShow.forEach((video, index) => {
-            const reelItem = document.createElement('div');
-            reelItem.className = 'reel-item';
-            reelItem.style.animationDelay = `${index * 0.1}s`;
-            
-            reelItem.innerHTML = `
-                <div class="reel-video-container">
+            const videoItem = document.createElement('div');
+            videoItem.className = `${baseClassName}-item`; // e.g., 'reel-item' or 'work-item'
+            videoItem.style.animationDelay = `${index * 0.1}s`;
+
+            videoItem.innerHTML = `
+                <div class="${baseClassName}-video-container">
                     <iframe src="${video.url}" 
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -653,19 +672,31 @@ async function loadVideos() {
                             loading="lazy">
                     </iframe>
                 </div>
-                <div class="reel-info">
-                    <h3 class="reel-title">${video.title}</h3>
-                    <p class="reel-category">Professional Reel</p>
+                <div class="${baseClassName}-info">
+                    <h3 class="${baseClassName}-title">${video.title}</h3>
+                    <p class="${baseClassName}-category">Professional Reel</p>
                 </div>
             `;
-            
-            gallery.appendChild(reelItem);
+            container.appendChild(videoItem);
         });
-        
+
+        // Animate items on scroll after they are added to the DOM
+        gsap.from(container.querySelectorAll(`.${baseClassName}-item`), {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            ease: 'power2.out',
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: container,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+
     } catch (error) {
         console.error('Error loading videos:', error);
-        const gallery = document.getElementById('videoGallery');
-        gallery.innerHTML = `
+        container.innerHTML = `
             <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
                 <h3 style="font-size: 24px; color: var(--primary-color); margin-bottom: 20px;">
                     Error Loading Videos
@@ -866,19 +897,30 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Call switchLanguage once to set the initial state correctly for the slider and text
     switchLanguage(currentLang); 
     await loadTestimonials(); // Load and initialize testimonials FIRST
-    loadVideos();             // Then load other dynamic content like homepage videos
+
+    // Check for specific elements to determine which page we are on
+    const homepageVideoGallery = document.getElementById('videoGallery'); // ID for the homepage work section
+    const myWorkGrid = document.getElementById('workGrid'); // ID for the my-work.html grid
+
+    if (homepageVideoGallery) {
+        // This is the homepage, load only 3 videos
+        loadProjectVideos('videoGallery', 3);
+    } else if (myWorkGrid) {
+        // This is the my-work.html page, load all videos
+        loadProjectVideos('workGrid');
+    }
 });
 
-// Add this to ensure video content doesn't flip in RTL mode
+// Add this to ensure video content doesn't flip in RTL mode (now more comprehensive)
 document.addEventListener('DOMContentLoaded', () => {
-    // Force LTR direction for video content in RTL mode
-    const portfolioSection = document.querySelector('.portfolio');
-    if (portfolioSection) {
-        portfolioSection.setAttribute('dir', 'ltr');
-    }
+    // Force LTR direction for video content in RTL mode for relevant sections
+    const portfolioSections = document.querySelectorAll('.portfolio-reels, .work-page');
+    portfolioSections.forEach(section => {
+        section.setAttribute('dir', 'ltr');
+    });
     
     // Ensure video items maintain LTR
-    const videoItems = document.querySelectorAll('.video-item, .swiper-container, .swiper-slide');
+    const videoItems = document.querySelectorAll('.reel-item, .work-item, .swiper-container, .swiper-slide');
     videoItems.forEach(item => {
         item.setAttribute('dir', 'ltr');
     });
