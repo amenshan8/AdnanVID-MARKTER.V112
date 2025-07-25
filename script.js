@@ -616,13 +616,16 @@ async function loadVideos() {
     try {
         const response = await fetch('videos.json');
         const allVideos = await response.json();
-        
+
         const gallery = document.getElementById('videoGallery');
 
-        // FIX: GitHub Pages-friendly homepage detection
-        const path = window.location.pathname;
-        const isHomePage = path.endsWith('/') || path.endsWith('/index.html') || path.endsWith('/AdnanVID-MARKTER.V103/') || path.endsWith('/AdnanVID-MARKTER.V103/index.html');
-        
+        // ✅ Bulletproof homepage detection (for GitHub Pages subfolder)
+        const pathname = window.location.pathname.replace(/\/+$/, ''); // remove trailing slashes
+        const isHomePage =
+            pathname === '/AdnanVID-MARKTER.V103' ||
+            pathname === '/AdnanVID-MARKTER.V103/index.html' ||
+            pathname === '' || pathname === '/';
+
         if (!allVideos || allVideos.length === 0) {
             gallery.innerHTML = `
                 <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
@@ -636,17 +639,17 @@ async function loadVideos() {
             `;
             return;
         }
-        
+
         gallery.innerHTML = '';
-        
-        // On homepage, show only latest 3 videos
+
+        // Show only 3 on homepage, all on my-work.html
         const videosToShow = isHomePage ? allVideos.slice(0, 3) : allVideos;
-        
+
         videosToShow.forEach((video, index) => {
             const reelItem = document.createElement('div');
             reelItem.className = 'reel-item';
             reelItem.style.animationDelay = `${index * 0.1}s`;
-            
+
             reelItem.innerHTML = `
                 <div class="reel-video-container">
                     <iframe src="${video.url}" 
@@ -661,10 +664,10 @@ async function loadVideos() {
                     <p class="reel-category">Professional Reel</p>
                 </div>
             `;
-            
+
             gallery.appendChild(reelItem);
         });
-        
+
     } catch (error) {
         console.error('Error loading videos:', error);
         const gallery = document.getElementById('videoGallery');
