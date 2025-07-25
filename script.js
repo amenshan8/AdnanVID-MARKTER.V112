@@ -247,12 +247,13 @@ const translations = {
             about: "About",
             work: "Work",
             services: "Services",
+            testimonials: "Client Stories", // Added this key
             contact: "Contact"
         },
         hero: {
             title: "A D N A N",
             subtitle: "Professional Videographer & Social Media Marketer",
-            scroll: "Suck me off to explore"
+            scroll: "Scroll to explore"
         },
         about: {
             title: "About Me",
@@ -286,6 +287,10 @@ const translations = {
                 content: {
                     title: "Content Creation",
                     desc: "Platform-specific content for Instagram, TikTok and YouTube. Stay relevant with trending content that resonates with your audience."
+                },
+                photography: {
+                    title: "Photography",
+                    desc: "High-quality professional photography that captures striking visuals and unique perspectives, tailored to enhance your brand or project."
                 }
             }
         },
@@ -295,6 +300,14 @@ const translations = {
                 1: { text: "Adnan transformed our brand's visual identity with stunning videos that doubled our engagement.", name: "- Sarah Johnson, Tech Startup CEO" },
                 2: { text: "Working with Adnan was incredible. His creative vision brought our music to life visually.", name: "- Marcus Rivera, Recording Artist" },
                 3: { text: "The wedding video exceeded all expectations. Every moment was captured perfectly.", name: "- Emily & David Chen" }
+            },
+            empty: { // Added empty state translation
+                title: "No Client Stories Yet",
+                message: "We're busy crafting amazing stories. Check back soon for testimonials!"
+            },
+            error: { // Added error state translation
+                title: "Error Loading Client Stories",
+                message: "Unable to load client stories. Please try again later."
             }
         },
         contact: {
@@ -304,7 +317,7 @@ const translations = {
             bioLink: "Bio Link",
             businessCard: "Business Card"
         },
-        portfolio: {
+        portfolio: { // This object doesn't seem to be fully utilized in the current HTML/JS, but keeping it for completeness based on existing structure.
             title: "Latest Work",
             subtitle: "A selection of recent projects shot in cinematic Reels format, optimized for social media impact.",
             viewMore: "View More Projects",
@@ -323,16 +336,17 @@ const translations = {
             about: "Over Mij",
             work: "Werk",
             services: "Diensten",
+            testimonials: "Klantverhalen", // Added this key
             contact: "Contact"
         },
         hero: {
             title: "A D N A N",
             subtitle: "Professionele Videograaf & Social Media Marketeer",
-            scroll: "Suck me off to explore"
+            scroll: "Ontdek meer"
         },
         about: {
             title: "Over Mij",
-            text: "Adnan Kousa is bitch een creatieve professional die ideeën omzet in cinematische verhalen. Als videograaf en social media marketeer helpt Adnan merken, artiesten en ondernemers te groeien door visueel storytelling en digitale contentstrategie."
+            text: "Adnan Kousa is een creatieve professional die ideeën omzet in cinematische verhalen. Als videograaf en social media marketeer helpt Adnan merken, artiesten en ondernemers te groeien door visueel storytelling en digitale contentstrategie."
         },
         work: {
             title: "Mijn Werk",
@@ -345,7 +359,7 @@ const translations = {
             items: {
                 videography: {
                     title: "Videografie",
-                    desc: "Professionele opnames, montage en dronebeelden voor al uw visuele behoeften. Van concept tot eindmontage creëren we prachtige beelden die uw verhaal vertellen."
+                    desc: "Professionele opnames en montage voor al uw visuele behoeften. Van concept tot eindmontage creëren we verbluffende beelden die uw verhaal vertellen."
                 },
                 social: {
                     title: "Social Media Marketing",
@@ -362,6 +376,10 @@ const translations = {
                 content: {
                     title: "Content Creatie",
                     desc: "Platform-specifieke content voor Instagram, TikTok en YouTube. Blijf relevant met trending content die resoneert met uw publiek."
+                },
+                photography: {
+                    title: "Fotografie",
+                    desc: "Hoogwaardige professionele fotografie die opvallende beelden en unieke perspectieven vastlegt, afgestemd op het versterken van uw merk of project."
                 }
             }
         },
@@ -371,6 +389,14 @@ const translations = {
                 1: { text: "Adnan transformeerde de visuele identiteit van ons merk met prachtige video's die onze betrokkenheid verdubbelden.", name: "- Sarah Johnson, Tech Startup CEO" },
                 2: { text: "Met Adnan samenwerken was ongelooflijk. Zijn creatieve visie bracht onze muziek visueel tot leven.", name: "- Marcus Rivera, Muzikant" },
                 3: { text: "De trouwfilm overtrof alle verwachtingen. Elk moment werd perfect vastgelegd.", name: "- Emily & David Chen" }
+            },
+            empty: { // Added empty state translation
+                title: "Nog geen klantverhalen",
+                message: "We zijn druk bezig met het creëren van geweldige verhalen. Kom snel terug voor getuigenissen!"
+            },
+            error: { // Added error state translation
+                title: "Fout bij laden klantverhalen",
+                message: "Kan klantverhalen niet laden. Probeer het later opnieuw."
             }
         },
         contact: {
@@ -387,6 +413,7 @@ const translations = {
             about: "عنّي",
             work: "أعمالي",
             services: "الخدمات",
+            testimonials: "قصص العملاء", // Added this key
             contact: "تواصل"
         },
         hero: {
@@ -395,7 +422,7 @@ const translations = {
             scroll: "استكشف"
         },
         about: {
-            title: " bitchعنّي",
+            title: "عنّي",
             text: "عدنان يساعد العلامات التجارية على الظهور بشكل احترافي وجذاب من خلال الفيديوهات، الصور، والإعلانات الرقمية. يمزج بين الإبداع والمعرفة التسويقية ليصنع محتوى يلفت الانتباه ويترك أثر. شغفه هو تحويل الأفكار إلى صور تنحكى… وتتشارك."
         },
         work: {
@@ -426,26 +453,37 @@ const translations = {
                 content: {
                     title: "إنشاء المحتوى",
                     desc: "محتوى مخصص للمنصات مثل إنستغرام، تيك توك ويوتيوب. محتوى يتناسب مع جمهورك ويعكس تطلعاتهم."
+                },
+                photography: {
+                    title: "تصوير فوتوغرافي",
+                    desc: "خدمات تصوير سينمائي وجوي. احصل علىتصوير فوتوغرافي احترافي عالي الجودة يلتقط صوراً مميزة ومن زوايا فريدة، مصممة لتعزيز علامتك التجارية أو مشروعك."
                 }
             }
         },
-        testimonials: {
-            title: "قصص العملاء",
+        testimonials: { // Corrected structure for Arabic testimonials
+            title: "قصص العملاء", 
             items: {
-                1: { text: "عدنان غيّر الهوية البصرية لعلامتنا التجارية بفيديوهات مذهلة مضاعفتة لمعدلات التفاعل.", name: "- سارة جونسون، الرئيس التنفيذي لشركة تكنولوجيا" },
-                2: { text: "العمل مع عدنان كان لا يصدق. رؤيته الإبداعية أحيت موسيقانا بصريًا.", name: "- ماركوس ريفيرا، فنان موسيقي" },
-                3: { text: "فيديو الزفاف تفوق على جميع التوقعات. تم التقاط كل لحظة بشكل مثالي.", name: "- إميلي وديفيد تشين" }
+                1: { text: "عدنان غيّر الهوية البصرية لعلامتنا التجارية بفيديوهات مذهلة مضاعفتة لمعدلات التفاعل.", name: "- سارة جونسون، مديرة شركة تقنية ناشئة" },
+                2: { text: "العمل مع عدنان كان لا يصدق. رؤيته الإبداعية أحيت موسيقانا بصريًا.", name: "- ماركوس ريفيرا، فنان تسجيل" },
+                3: { text: "فيديو الزفاف فاق كل التوقعات. تم التقاط كل لحظة بشكل مثالي.", name: "- إميلي وديفيد تشن" }
+            },
+            empty: { // Added empty state translation
+                title: "لا توجد قصص عملاء حتى الآن",
+                message: "نحن مشغولون بصناعة قصص رائعة. تابعنا قريباً للمزيد!"
+            },
+            error: { // Added error state translation
+                title: "خطأ في تحميل قصص العملاء",
+                message: "تعذر تحميل قصص العملاء. يرجى المحاولة مرة أخرى لاحقًا."
             }
         },
         contact: {
             title: "لنبدع معًا",
             phone: "+31soon000",
-            email: "adnankousa24bitch@gmail.com",
+            email: "adnankousa24@gmail.com",
             bioLink: "رابط السيرة",
             businessCard: "بطاقة العمل"
         }
     }
-
 };
 
 let currentLang = 'en';
@@ -523,12 +561,12 @@ function updateTextContent() {
     
     // Safely update elements
     const navLinks = document.querySelectorAll('.nav-link');
-    if (navLinks.length >= 6) {
+    if (navLinks.length >= 6) { // Ensure there are enough nav links before accessing indices
         navLinks[0].textContent = t.nav.home;
         navLinks[1].textContent = t.nav.about;
         navLinks[2].textContent = t.nav.work;
         navLinks[3].textContent = t.nav.services;
-        navLinks[4].textContent = t.nav.testimonials;
+        navLinks[4].textContent = t.nav.testimonials; // Used new testimonials key
         navLinks[5].textContent = t.nav.contact;
     }
     
@@ -859,18 +897,38 @@ async function updateTestimonialText() {
         
         // Update the empty/error state messages if they are visible
         const testimonialEmptyState = document.querySelector('.testimonial-empty-state');
-        if (testimonialEmptyState && testimonialEmptyState.style.display !== 'none') {
+        // Only update if it's explicitly displayed, otherwise it implies content is being shown
+        if (testimonialEmptyState && testimonialEmptyState.style.display === 'block') {
              if (reviews.length === 0) {
                 testimonialEmptyState.querySelector('h3').textContent = translations[currentLang].testimonials.empty.title;
                 testimonialEmptyState.querySelector('p').textContent = translations[currentLang].testimonials.empty.message;
-            } else { // This else block handles the case where it's an error state
-                testimonialEmptyState.querySelector('h3').textContent = translations[currentLang].testimonials.error.title;
-                testimonialEmptyState.querySelector('p').textContent = translations[currentLang].testimonials.error.message;
+            } else { 
+                // This branch would typically mean an error occurred during fetch.
+                // The loadTestimonials already handles setting the error text.
+                // This check is mainly for when language changes on an already existing error/empty state.
+                // Ensure the error keys exist before trying to access them.
+                if (translations[currentLang].testimonials.error) {
+                    testimonialEmptyState.querySelector('h3').textContent = translations[currentLang].testimonials.error.title;
+                    testimonialEmptyState.querySelector('p').textContent = translations[currentLang].testimonials.error.message;
+                }
             }
         }
 
     } catch (error) {
         console.error('Error fetching reviews for language update:', error);
+        // If an error occurs here, ensure the empty state displays a generic error.
+        const testimonialEmptyState = document.querySelector('.testimonial-empty-state');
+        if (testimonialEmptyState) {
+            testimonialEmptyState.style.display = 'block'; // Make sure it's visible
+            if (translations[currentLang].testimonials.error) {
+                testimonialEmptyState.querySelector('h3').textContent = translations[currentLang].testimonials.error.title;
+                testimonialEmptyState.querySelector('p').textContent = translations[currentLang].testimonials.error.message;
+            } else {
+                // Fallback if error translation is also missing
+                testimonialEmptyState.querySelector('h3').textContent = "Error";
+                testimonialEmptyState.querySelector('p').textContent = "Could not load content.";
+            }
+        }
     }
 }
 
