@@ -613,79 +613,73 @@ function updateTextContent() {
 
 // Function to load videos from JSON
 async function loadVideos() {
-    try {
-        const response = await fetch('videos.json');
-        const allVideos = await response.json();
+  try {
+    const response = await fetch('videos.json');
+    const allVideos = await response.json();
+    const gallery = document.getElementById('videoGallery');
+    const url = window.location.href;
 
-        const gallery = document.getElementById('videoGallery');
+    // ✅ Reliable detection using URL contains logic
+    const isHomePage = url.includes('/AdnanVID-MARKTER.V103/') && !url.includes('my-work.html');
+    const isWorkPage = url.includes('my-work.html');
 
-        // ✅ Bulletproof homepage detection (for GitHub Pages subfolder)
-        const pathname = window.location.pathname.replace(/\/+$/, ''); // remove trailing slashes
-        const isHomePage =
-            pathname === '/AdnanVID-MARKTER.V103' ||
-            pathname === '/AdnanVID-MARKTER.V103/index.html' ||
-            pathname === '' || pathname === '/';
-
-        if (!allVideos || allVideos.length === 0) {
-            gallery.innerHTML = `
-                <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
-                    <h3 style="font-size: 24px; color: var(--text-muted); margin-bottom: 20px;">
-                        No videos available at the moment.
-                    </h3>
-                    <p style="color: var(--text-muted); font-size: 16px;">
-                        Check back soon for new content.
-                    </p>
-                </div>
-            `;
-            return;
-        }
-
-        gallery.innerHTML = '';
-
-        // Show only 3 on homepage, all on my-work.html
-        const videosToShow = isHomePage ? allVideos.slice(0, 3) : allVideos;
-
-        videosToShow.forEach((video, index) => {
-            const reelItem = document.createElement('div');
-            reelItem.className = 'reel-item';
-            reelItem.style.animationDelay = `${index * 0.1}s`;
-
-            reelItem.innerHTML = `
-                <div class="reel-video-container">
-                    <iframe src="${video.url}" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen
-                            loading="lazy">
-                    </iframe>
-                </div>
-                <div class="reel-info">
-                    <h3 class="reel-title">${video.title}</h3>
-                    <p class="reel-category">Professional Reel</p>
-                </div>
-            `;
-
-            gallery.appendChild(reelItem);
-        });
-
-    } catch (error) {
-        console.error('Error loading videos:', error);
-        const gallery = document.getElementById('videoGallery');
-        gallery.innerHTML = `
-            <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
-                <h3 style="font-size: 24px; color: var(--primary-color); margin-bottom: 20px;">
-                    Error Loading Videos
-                </h3>
-                <p style="color: var(--text-muted); font-size: 16px;">
-                    Please check your connection and refresh the page.
-                </p>
-            </div>
-        `;
+    if (!allVideos || allVideos.length === 0) {
+      gallery.innerHTML = `
+        <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
+          <h3 style="font-size: 24px; color: var(--text-muted); margin-bottom: 20px;">
+            No videos available at the moment.
+          </h3>
+          <p style="color: var(--text-muted); font-size: 16px;">
+            Check back soon for new content.
+          </p>
+        </div>`;
+      return;
     }
+
+    gallery.innerHTML = '';
+
+    // Show only first 3 on homepage, all on my-work page
+    const videosToShow = isHomePage ? allVideos.slice(0, 3) : allVideos;
+
+    videosToShow.forEach((video, index) => {
+      const reelItem = document.createElement('div');
+      reelItem.className = 'reel-item';
+      reelItem.style.animationDelay = `${index * 0.1}s`;
+
+      reelItem.innerHTML = `
+        <div class="reel-video-container">
+          <iframe src="${video.url}"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                  loading="lazy"></iframe>
+        </div>
+        <div class="reel-info">
+          <h3 class="reel-title">${video.title}</h3>
+          <p class="reel-category">Professional Reel</p>
+        </div>`;
+
+      gallery.appendChild(reelItem);
+    });
+
+  } catch (error) {
+    console.error('Error loading videos:', error);
+    const gallery = document.getElementById('videoGallery');
+    gallery.innerHTML = `
+      <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
+        <h3 style="font-size: 24px; color: var(--primary-color); margin-bottom: 20px;">
+          Error Loading Videos
+        </h3>
+        <p style="color: var(--text-muted); font-size: 16px;">
+          Please check your connection and refresh the page.
+        </p>
+      </div>`;
+  }
 }
 
-// Global Swiper instance for testimonials
-let testimonialsSwiper;
+// Initialize
+loadVideos();
+
 
 /**
  * Loads testimonials from reviews.json and initializes the Swiper carousel.
