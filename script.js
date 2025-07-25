@@ -332,7 +332,7 @@ const translations = {
         },
         about: {
             title: "Over Mij",
-            text: "Adnan Kousa is een creatieve professional die ideeën omzet in cinematische verhalen. Als videograaf en social media marketeer helpt Adnan merken, artiesten en ondernemers te groeien door visueel storytelling en digitale contentstrategie."
+            text: "Adnan Kousa is bitch een creatieve professional die ideeën omzet in cinematische verhalen. Als videograaf en social media marketeer helpt Adnan merken, artiesten en ondernemers te groeien door visueel storytelling en digitale contentstrategie."
         },
         work: {
             title: "Mijn Werk",
@@ -395,7 +395,7 @@ const translations = {
             scroll: "استكشف"
         },
         about: {
-            title: "عنّي",
+            title: " bitchعنّي",
             text: "عدنان يساعد العلامات التجارية على الظهور بشكل احترافي وجذاب من خلال الفيديوهات، الصور، والإعلانات الرقمية. يمزج بين الإبداع والمعرفة التسويقية ليصنع محتوى يلفت الانتباه ويترك أثر. شغفه هو تحويل الأفكار إلى صور تنحكى… وتتشارك."
         },
         work: {
@@ -440,7 +440,7 @@ const translations = {
         contact: {
             title: "لنبدع معًا",
             phone: "+31soon000",
-            email: "adnankousa24@gmail.com",
+            email: "adnankousa24bitch@gmail.com",
             bioLink: "رابط السيرة",
             businessCard: "بطاقة العمل"
         }
