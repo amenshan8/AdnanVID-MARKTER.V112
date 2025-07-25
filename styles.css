@@ -1050,7 +1050,7 @@ iframe {
         position: fixed;
         top: 80px;
         right: -100%;
-        flex-direction: column;
+        flex-direction: column; /* Default for LTR mobile */
         background: rgba(5, 5, 5, 0.98);
         width: 100%;
         height: calc(100vh - 80px);
@@ -1159,6 +1159,19 @@ iframe {
     }
     .swiper-button-next {
         right: -5px; /* Adjust for mobile */
+    }
+
+    /* FIX: Force mobile navigation menu to be vertical (column) in RTL */
+    /* And adjust sliding direction for RTL to come from the left */
+    [dir="rtl"] .nav-menu {
+        flex-direction: column; /* This overrides the global row-reverse for mobile RTL */
+        right: auto; /* Remove right property for RTL mobile */
+        left: -100%; /* Slide from left */
+    }
+
+    [dir="rtl"] .nav-menu.active {
+        left: 0; /* Slide to left: 0 */
+        right: auto; /* Ensure right is not set */
     }
 }
 
