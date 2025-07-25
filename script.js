@@ -618,7 +618,10 @@ async function loadVideos() {
         const allVideos = await response.json();
         
         const gallery = document.getElementById('videoGallery');
-        const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+
+        // FIX: GitHub Pages-friendly homepage detection
+        const path = window.location.pathname;
+        const isHomePage = path.endsWith('/') || path.endsWith('/index.html') || path.endsWith('/AdnanVID-MARKTER.V103/') || path.endsWith('/AdnanVID-MARKTER.V103/index.html');
         
         if (!allVideos || allVideos.length === 0) {
             gallery.innerHTML = `
