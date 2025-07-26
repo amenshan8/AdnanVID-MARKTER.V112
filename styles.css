@@ -6,16 +6,16 @@
 }
 
 :root {
-    --primary-color: #ff0040;
-    --secondary-color: #00ff88;
-    --accent-color: #ffaa00;
+    --primary-color: #00ffe5;
+    --secondary-color: #00ffe5;
+    --accent-color: #5f543f;
     --dark-bg: #0a0a0a;
     --darker-bg: #050505;
     --card-bg: #111111;
     --text-light: #ffffff;
     --text-muted: #666666;
     --border-color: #222222;
-    --gradient-1: linear-gradient(135deg, #ff0040, #ffaa00);
+    --gradient-1: linear-gradient(135deg, #4e4ca5, #870aee);
     --gradient-2: linear-gradient(135deg, #00ff88, #0099ff);
     --font-primary: 'Oswald', sans-serif;
     --font-secondary: 'Roboto', sans-serif;
@@ -50,6 +50,10 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.logo {
+  display: none !important;
 }
 
 .logo-text {
@@ -165,7 +169,7 @@ body {
 }
 
 .language-option.active {
-    color: #ff0040;
+    color: #ffffff;
 }
 
 .language-slider {
@@ -174,7 +178,7 @@ body {
     left: 4px;
     width: 40px;
     height: calc(100% - 8px);
-    background: linear-gradient(135deg, #ff0040, #ffaa00);
+    background: linear-gradient(135deg, #4e4ca5, #870aee);
     border-radius: 20px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1;
@@ -272,8 +276,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 50%, #0a1a0a 100%);
+    background: linear-gradient(135deg, #2c2b2b 0%, #000000 100%) !important;
     overflow: hidden;
+    opacity: 1 !important;
+    transition: none !important;
 }
 
 .hero::before {
@@ -440,7 +446,7 @@ section {
 /* Portfolio Section (new structure for reels) */
 .portfolio-reels {
     background: var(--dark-bg);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(153, 0, 255, 0.1);
     position: relative;
     overflow: hidden;
 }
@@ -476,7 +482,7 @@ section {
 /* Services Section - Fixed layout and visibility */
 .services {
     background: var(--darker-bg);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(212, 0, 255, 0.1);
     padding: 120px 0;
     display: block !important;
     visibility: visible !important;
@@ -539,7 +545,7 @@ section {
 .service-item:hover {
     transform: translateY(-10px);
     border-color: var(--primary-color);
-    box-shadow: 0 20px 40px rgba(255, 0, 64, 0.1);
+    box-shadow: 0 20px 40px rgba(89, 0, 255, 0.1);
 }
 
 .service-icon {
@@ -579,7 +585,7 @@ section {
 /* Testimonials Section */
 .testimonials {
     background: var(--dark-bg);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(140, 0, 255, 0.1);
 }
 
 /* Testimonials Section - Swiper Integration */
@@ -927,7 +933,7 @@ section {
 
 .reel-item {
     background: var(--card-bg);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(163, 3, 255, 0.1);
     border-radius: 20px;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -951,13 +957,15 @@ section {
 .reel-item:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 20px 40px rgba(255, 0, 64, 0.2);
+    box-shadow: 0 0 30px 5px #34065a, 0 0 60px 10px #3a204e;
+    border-color: #0c0313;
 }
 
 .reel-video-container {
     position: relative;
     width: 100%;
     aspect-ratio: 9/16;
-    background: #000;
+    background: #000000;
     overflow: hidden;
 }
 
