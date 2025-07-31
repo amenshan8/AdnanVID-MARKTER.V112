@@ -75,27 +75,17 @@ document.addEventListener('DOMContentLoaded', () => {
             duration: 1.2,
             ease: "power2.out"
         }, "<0.5"); // Start subtitle animation 0.5 seconds before clapperTop finishes, for overlap
-
-    // Add subtle film grain effect after the main intro animation
-    gsap.to('.hero', {
-        background: "linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 50%, #0a1a0a 100%)",
-        duration: 0.1,
-        repeat: -1,
-        yoyo: true,
-        delay: clapperTL.duration() + clapperTL.delay() + 0.2, // Start after the entire text animation, plus a small buffer
-        opacity: 0.98
-    });
 });
 
-// Parallax effect for hero
-gsap.to('.hero-video-container', {
-    yPercent: 50,
+// Parallax effect for global background image
+gsap.to('#global-background', {
+    yPercent: -10, // Adjust this value for more or less parallax effect
     ease: 'none',
     scrollTrigger: {
-        trigger: '.hero',
+        trigger: 'body', // Trigger for the entire page scroll
         start: 'top top',
-        end: 'bottom top',
-        scrub: 1
+        end: 'bottom top', // Animates throughout the entire scroll of the body
+        scrub: 0.5 // Smoothly links animation to scroll position
     }
 });
 
@@ -922,7 +912,7 @@ async function updateTestimonialText() {
             testimonialEmptyState.style.display = 'block'; // Make sure it's visible
             if (translations[currentLang].testimonials.error) {
                 testimonialEmptyState.querySelector('h3').textContent = translations[currentLang].testimonials.error.title;
-                testimonialEmptyState.querySelector('p').textContent = translations[currentLang].testimonials.error.message;
+                testimonialEmptyState.querySelector('p').textContent = "Could not load content."; // Fallback if error translation is also missing
             } else {
                 // Fallback if error translation is also missing
                 testimonialEmptyState.querySelector('h3').textContent = "Error";
