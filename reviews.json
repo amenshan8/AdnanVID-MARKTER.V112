@@ -4,9 +4,19 @@
     "title": "Restaurant",
     "image": "images/clients/chezaza_logo.png",
     "review": {
-      "en": "Honestly, there's no one like Adnan. He literally handles all the social media accounts — he's the one who films, edits, runs ad campaigns, and his prices are very reasonable.",
-      "nl": "Eerlijk gezegd, er is niemand zoals Adnan. Hij beheert letterlijk alle socialmediakanalen – hij filmt, monteert, voert advertentiecampagnes uit en zijn prijzen zijn echt betaalbaar.",
+      "en": "There's no one like Adnan. He literally handles all the social media accounts — he's the one who films, edits, runs ad campaigns, and his prices are very reasonable.",
+      "nl": "Er is niemand zoals Adnan. Hij beheert letterlijk alle socialmediakanalen – hij filmt, monteert, voert advertentiecampagnes uit en zijn prijzen zijn echt betaalbaar.",
       "ar": "للصراحة، ما في متل عدنان حرفيًا. ماسك كل حسابات السوشال ميديا، هو اللي بيصور، بيمنتج، وبيشغل الحملات الإعلانية، وأسعاره كتير مناسبة."
+    }
+  },
+  {
+    "name": "Butoul Beauty",
+    "title": "Beauty Salon",
+    "image": "images/clients/marcus_rivera.png",
+    "review": {
+      "en": "Honestly, the work is amazing—very precise and professional! I had a reel made for my beauty business and another one for my birthday. The filming, editing, everything was excellent. On top of that, he even helped me with the design and creative ideas.",
+      "nl": "Eerlijk gezegd is het werk geweldig—heel precies en professioneel! Ik liet een reel maken voor mijn beautybedrijf en ook één voor mijn verjaardag. De opnames, de montage, alles was top. Daarbovenop hielp hij me ook met het ontwerp en de creatieve ideeën.",
+      "ar": "بصراحة الشغل رهيب وكتير مُتقن واحترافي، عملت ريلز لشغلي بمجال التجميل وكمان ريل خاص لعيد ميلادي يعني التصوير وال edit وكل شي كان ممتاز وفوق كل هاد كمان ساعدني بال design والافكار."
     }
   }
 ]
