@@ -769,6 +769,8 @@ section {
 .contact {
     background: var(--darker-bg);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 24px;
+    padding-top: 24px;
 }
 
 .contact-content {
@@ -777,122 +779,58 @@ section {
 
 .contact-top-row {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    margin-bottom: 60px;
-    flex-wrap: wrap;
-}
-
-.contact-info .elementor-icon-list-items,
-.elementor-hidden-phone .elementor-icon-list-items {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.elementor-icon-list-item a {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--text-light);
-    text-decoration: none;
-    transition: color 0.3s ease;
-    font-family: var(--font-secondary);
-    font-size: 18px;
-}
-
-.elementor-icon-list-item a:hover {
-    color: var(--primary-color);
-}
-
-.elementor-icon-list-icon {
-    font-size: 24px;
-    color: var(--primary-color);
-    transition: transform 0.3s ease;
-}
-
-.elementor-icon-list-item:hover .elementor-icon-list-icon {
-    transform: scale(1.1);
-}
-
-/* Hide on phone and use mobile layout */
-.elementor-hidden-phone {
-    display: block;
-}
-
-.contact-bottom-row {
-    display: flex;
     justify-content: center;
-    margin-top: 60px;
-    flex-wrap: wrap;
+    margin-top: 24px;
+    margin-bottom: 0;
+    gap: 0;
 }
 
 .contact-info {
     display: flex;
     justify-content: center;
-    gap: 80px;
-    margin-bottom: 60px;
-    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 0;
 }
 
-.contact-item {
+.contact-info .elementor-icon-list-items,
+.elementor-hidden-phone .elementor-icon-list-items {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+}
+
+.elementor-hidden-phone .elementor-icon-list-items {
+    gap: 20px;
+}
+
+.elementor-icon-list-item a {
     display: flex;
     align-items: center;
-    gap: 20px;
-    font-size: 20px;
-}
-
-.contact-item i {
-    font-size: 32px;
-    color: var(--primary-color);
-}
-
-.contact-item a {
+    gap: 8px;
     color: var(--text-light);
     text-decoration: none;
-    font-size: 20px;
     transition: color 0.3s ease;
+    font-family: var(--font-secondary);
+    font-size: 16px;
 }
 
-.contact-item a:hover {
+.elementor-icon-list-icon {
+    font-size: 22px;
     color: var(--primary-color);
+    transition: transform 0.3s ease;
 }
 
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-bottom: 60px;
-    flex-wrap: wrap;
-}
-
-.social-link {
-    display: inline-block;
-    width: 70px;
-    height: 70px;
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-light);
-    font-size: 28px;
-    transition: all 0.4s ease;
-}
-
-.social-link:hover {
-    background: var(--primary-color);
-    border-color: var(--primary-color);
-    color: var(--dark-bg);
-    transform: translateY(-5px);
-}
-
+.contact-bottom-row,
 .contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .btn {
