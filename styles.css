@@ -616,7 +616,7 @@ section {
 }
 
 .testimonial-swiper .swiper-wrapper {
-    align-items: stretch;
+    align-items: stretch; /* Ensures all slides in a row stretch to the height of the tallest */
     height: 100%;
 }
 
@@ -624,29 +624,22 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: auto;
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    padding: 60px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s ease;
-    box-sizing: border-box;
-    /* Initial state for GSAP animation */
-    opacity: 0; 
-    visibility: hidden; 
+    height: auto; /* Let content dictate height, flexbox handles alignment */
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.12);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    min-height: 0;
-    margin: 0 !important; /* Remove extra margin */
-    padding: 0 !important; /* Remove extra padding */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); /* Subtle initial shadow */
+    transition: all 0.4s ease;
+    box-sizing: border-box;
+    
+    /* Initial state for GSAP animation */
+    opacity: 0; 
+    visibility: hidden; 
+}
+
+.testimonial-swiper .swiper-slide:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
 }
 
 .testimonial-content {
@@ -683,19 +676,17 @@ section {
 
 @media (min-width: 1024px) {
     .testimonial-swiper .swiper-slide {
-        margin: 0;
+        /* No explicit margins needed here, Swiper's spaceBetween handles it */
     }
 }
 
 .testimonial-swiper .swiper-slide::before {
-    content: '"';
-    position: absolute;
-    top: 20px;
-    left: 30px;
-    font-size: 120px;
-    color: var(--primary-color);
-    opacity: 0.1;
-    font-family: serif;
+    content: none;
+}
+
+/* For RTL, adjust quote position */
+[dir="rtl"] .testimonial-swiper .swiper-slide::before {
+    content: none;
 }
 
 .testimonial-swiper .testimonial-content p {
@@ -704,6 +695,9 @@ section {
     margin-bottom: 30px;
     color: var(--text-muted);
     flex-grow: 1;
+    position: relative; /* To ensure it's above the pseudo-element */
+    z-index: 2;
+    word-wrap: break-word; /* Ensure long words break and fit */
 }
 
 .testimonial-author-info {
@@ -711,6 +705,8 @@ section {
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+    position: relative; /* To ensure it's above the pseudo-element */
+    z-index: 2;
 }
 
 .client-image {
@@ -1123,12 +1119,6 @@ iframe {
         /* margin removed, spaceBetween handles it */
     }
 
-    .testimonial-swiper .swiper-slide::before {
-        font-size: 80px;
-        top: 10px;
-        left: 20px;
-    }
-
     .testimonial-swiper .testimonial-content p {
         font-size: clamp(14px, 3.5vw, 18px); /* Further adjustment for smaller screens */
     }
@@ -1199,7 +1189,7 @@ iframe {
 
     .testimonial-swiper .swiper-slide {
         padding: 30px;
-        margin: 0; /* Ensure no extra margin here */
+        /* No explicit margins here, Swiper's spaceBetween handles it */
     }
     
     .swiper-button-prev,
