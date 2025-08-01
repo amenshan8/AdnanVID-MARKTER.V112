@@ -614,15 +614,14 @@ section {
 }
 
 .testimonial-swiper .swiper-wrapper {
-    align-items: stretch; /* Ensures slides stretch to the height of the tallest in the group */
+    align-items: stretch;
 }
 
 .testimonial-swiper .swiper-slide {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* height: auto;  <-- Removed to let content and flexbox manage height */
-    min-height: 350px; /* Added minimum height to prevent overly short cards on desktop */
+    height: auto;
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     padding: 60px;
@@ -634,13 +633,6 @@ section {
     /* Initial state for GSAP animation */
     opacity: 0; 
     visibility: hidden; 
-}
-
-/* Crucial: Ensure testimonial content fills the slide and its children flex correctly */
-.testimonial-swiper .testimonial-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%; /* Make content fill the slide's height */
 }
 
 /* Empty State for Testimonials */
@@ -686,7 +678,7 @@ section {
     line-height: 1.8;
     margin-bottom: 30px;
     color: var(--text-muted);
-    flex-grow: 1; /* This will now work correctly due to parent being flex */
+    flex-grow: 1;
 }
 
 .testimonial-author-info {
@@ -705,6 +697,15 @@ section {
     border: 2px solid var(--primary-color);
     padding: 3px;
     background-color: var(--dark-bg);
+}
+
+.client-name {
+    font-family: var(--font-primary);
+    color: var(--primary-color);
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
 }
 
 .client-title {
@@ -1094,7 +1095,6 @@ iframe {
 
     .testimonial-swiper .swiper-slide {
         padding: 40px;
-        min-height: 280px; /* Adjusted minimum height for mobile */
         /* margin removed, spaceBetween handles it */
     }
 
@@ -1174,7 +1174,6 @@ iframe {
 
     .testimonial-swiper .swiper-slide {
         padding: 30px;
-        min-height: 250px; /* Further adjusted minimum height for very small screens */
         margin: 0; /* Ensure no extra margin here */
     }
     
