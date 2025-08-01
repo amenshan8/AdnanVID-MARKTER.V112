@@ -605,9 +605,14 @@ section {
 /* Testimonials Section - Swiper Integration */
 .testimonial-swiper {
     width: 100%;
-    padding: 20px 60px; /* ← adds 60px horizontal space between cards & arrows */
+    padding: 20px 0;
     position: relative;
     overflow: hidden;
+    /* Ensure the container is visible */
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .testimonial-swiper .swiper-wrapper {
@@ -648,11 +653,51 @@ section {
     min-height: 0;
 }
 
-.testimonial-content p {
-    font-size: 1.1rem; /* review text */
+/* Empty State for Testimonials */
+.testimonial-empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+    opacity: 1; /* Always visible if displayed */
+    visibility: visible; /* Always visible if displayed */
+}
+
+.testimonial-empty-state h3 {
+    font-family: var(--font-primary);
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: var(--text-light);
+}
+
+.testimonial-empty-state p {
+    font-size: 18px;
+    color: var(--text-muted);
+}
+
+@media (min-width: 1024px) {
+    .testimonial-swiper .swiper-slide {
+        /* No explicit margins needed here, Swiper's spaceBetween handles it */
+    }
+}
+
+.testimonial-swiper .swiper-slide::before {
+    content: none;
+}
+
+/* For RTL, adjust quote position */
+[dir="rtl"] .testimonial-swiper .swiper-slide::before {
+    content: none;
+}
+
+.testimonial-swiper .testimonial-content p {
+    font-size: clamp(16px, 3vw, 20px); /* Use clamp for responsive font size */
     line-height: 1.8;
     margin-bottom: 30px;
     color: var(--text-muted);
+    flex-grow: 1;
+    position: relative; /* To ensure it's above the pseudo-element */
+    z-index: 2;
+    word-wrap: break-word; /* Ensure long words break and fit */
 }
 
 .testimonial-author-info {
@@ -678,7 +723,7 @@ section {
 .client-name {
     font-family: var(--font-primary);
     color: var(--primary-color);
-    font-size: 1rem; /* author line */
+    font-size: 16px;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 5px;
@@ -738,44 +783,6 @@ section {
 
 .swiper-button-next::after {
     content: '\f054';
-}
-
-/* Responsive adjustments */
-@media (max-width: 1200px) {
-    .testimonial-swiper {
-        padding: 20px 40px; /* reduce horizontal padding on smaller screens */
-    }
-}
-
-@media (max-width: 768px) {
-    .testimonial-swiper {
-        padding: 20px 20px; /* further reduce for tablets */
-    }
-
-    .swiper-button-prev,
-    .swiper-button-next {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    .testimonial-swiper {
-        padding: 20px 10px; /* minimal padding on phones */
-    }
-
-    .testimonial-swiper .testimonial-content p {
-        font-size: 1rem; /* slightly smaller on mobile */
-    }
-    .client-name {
-        font-size: 0.9rem;
-    }
-
-    .swiper-button-prev,
-    .swiper-button-next {
-        display: none; /* hide arrows on phones, swipe instead */
-    }
 }
 
 /* Contact Section */
