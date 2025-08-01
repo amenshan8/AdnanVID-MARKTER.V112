@@ -221,7 +221,7 @@ body {
 }
 
 [dir="rtl"] .contact-top-row {
-    flex-direction: row-reverse;
+    flex-direction: column;
 }
 
 [dir="rtl"] .contact-info .elementor-icon-list-items {
@@ -630,7 +630,6 @@ section {
     overflow: hidden;
     transition: all 0.4s ease;
     box-sizing: border-box;
-    margin: 0 20px;
     /* Initial state for GSAP animation */
     opacity: 0; 
     visibility: hidden; 
@@ -675,7 +674,7 @@ section {
 }
 
 .testimonial-swiper .testimonial-content p {
-    font-size: 20px;
+    font-size: clamp(16px, 3vw, 20px); /* Use clamp for responsive font size */
     line-height: 1.8;
     margin-bottom: 30px;
     color: var(--text-muted);
@@ -1096,7 +1095,7 @@ iframe {
 
     .testimonial-swiper .swiper-slide {
         padding: 40px;
-        margin: 0 10px;
+        /* margin removed, spaceBetween handles it */
     }
 
     .testimonial-swiper .swiper-slide::before {
@@ -1106,7 +1105,7 @@ iframe {
     }
 
     .testimonial-swiper .testimonial-content p {
-        font-size: 18px;
+        font-size: clamp(14px, 3.5vw, 18px); /* Further adjustment for smaller screens */
     }
 
     .client-image {
@@ -1175,7 +1174,7 @@ iframe {
 
     .testimonial-swiper .swiper-slide {
         padding: 30px;
-        margin: 0;
+        margin: 0; /* Ensure no extra margin here */
     }
     
     .swiper-button-prev,
