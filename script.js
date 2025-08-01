@@ -303,9 +303,7 @@ const translations = {
         contact: {
             title: "Let's Create Together",
             phone: "+31soon000",
-            email: "adnankousa24@gmail.com",
-            bioLink: "Bio Link",
-            businessCard: "Business Card"
+            email: "adnankousa24@gmail.com"
         },
         portfolio: { // This object doesn't seem to be fully utilized in the current HTML/JS, but keeping it for completeness based on existing structure.
             title: "Latest Work",
@@ -392,9 +390,7 @@ const translations = {
         contact: {
             title: "Laten We Creëren",
             phone: "+31soon000",
-            email: "adnankousa24@gmail.com",
-            bioLink: "Bio Link",
-            businessCard: "Visitekaartje"
+            email: "adnankousa24@gmail.com"
         }
     },
     ar: {
@@ -469,9 +465,7 @@ const translations = {
         contact: {
             title: "لنبدع معًا",
             phone: "+31soon000",
-            email: "adnankousa24@gmail.com",
-            bioLink: "رابط السيرة",
-            businessCard: "بطاقة العمل"
+            email: "adnankousa24@gmail.com"
         }
     }
 };
@@ -621,13 +615,9 @@ function updateTextContent() {
     
     const phoneText = document.querySelector('.contact-info .elementor-icon-list-item:nth-child(1) .elementor-icon-list-text');
     const emailText = document.querySelector('.contact-info .elementor-icon-list-item:nth-child(2) .elementor-icon-list-text');
-    const bioLink = document.querySelector('.contact-links .btn-outline:nth-child(1)');
-    const businessCard = document.querySelector('.contact-links .btn-outline:nth-child(2)');
     
     if (phoneText) phoneText.textContent = t.contact.phone;
     if (emailText) emailText.textContent = t.contact.email;
-    if (bioLink) bioLink.textContent = t.contact.bioLink;
-    if (businessCard) businessCard.textContent = t.contact.businessCard;
 }
 
 /**
