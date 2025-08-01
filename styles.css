@@ -800,7 +800,7 @@ section {
     display: flex;
     gap: 24px;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Ensure elements wrap onto new lines if needed */
     justify-content: center;
     margin: 0;
 }
@@ -955,14 +955,14 @@ section {
 /* Responsive Reels Grid */
 @media (max-width: 768px) {
     .reels-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Force single column on smaller screens */
         gap: 30px;
         padding: 0 15px;
     }
     
     .reel-item {
-        max-width: 400px;
-        margin: 0 auto;
+        max-width: none; /* Allow items to take full available width */
+        margin: 0 auto; /* Keep margin for centering within container if needed */
     }
 }
 
@@ -1040,8 +1040,9 @@ iframe {
         transform: translateY(-8px) rotate(-45deg);
     }
 
+    /* Client Stories / Services Section Title Adjustments */
     .section-title {
-        font-size: 36px;
+        font-size: clamp(30px, 6vw, 36px); /* Adjusted for better responsiveness */
     }
 
     .hero-title-line {
@@ -1065,8 +1066,14 @@ iframe {
         padding: 40px 30px;
     }
     
-    .elementor-hidden-phone {
-        display: none;
+    /* Social Media Icons Visibility Fix */
+    .elementor-hidden-phone { 
+        display: block; /* Make sure it's visible on mobile */
+        margin-top: 15px; /* Add a little space from phone/email */
+    }
+    /* Ensure icons wrap correctly within the social block */
+    .elementor-hidden-phone .elementor-icon-list-items {
+        justify-content: center; /* Center icons horizontally */
     }
     
     .contact-links {
@@ -1148,8 +1155,10 @@ iframe {
         padding: 0 20px;
     }
 
+    /* Client Stories / Services Section Title Adjustments for smaller screens */
     .section-title {
-        font-size: 28px;
+        font-size: clamp(24px, 7vw, 28px); /* Further adjusted for smaller screens */
+        letter-spacing: 2px; /* Reduce letter spacing on very small screens */
     }
 
     .services {
@@ -1189,9 +1198,10 @@ iframe {
     font-size: 16px;
     font-weight: 600;
     letter-spacing: 2px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .see-more-btn i {
@@ -1294,4 +1304,43 @@ iframe {
 [dir="rtl"] .reel-video-container,
 [dir="rtl"] .work-video-container { /* Added .work-video-container */
     direction: ltr;
+}
+
+/* My Work page specific styles (adjusted for responsiveness) */
+.work-page .work-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.work-page .work-item {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@media (max-width: 768px) {
+    .work-page .work-grid {
+        grid-template-columns: 1fr; /* Force single column on smaller screens */
+        gap: 30px;
+        padding: 0 20px;
+    }
+    .work-page .work-item {
+        max-width: none; /* Allow items to take full available width */
+        margin: 0 auto; /* Keep margin for centering if needed */
+    }
+}
+
+@media (max-width: 480px) {
+    .work-page .work-grid {
+        gap: 20px;
+        padding: 0 15px;
+    }
 }
